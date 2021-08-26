@@ -1,0 +1,192 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <div id="logo">
+    <img src="assets\img\logo.png">
+  </div>
+
+  <ion-grid *ngIf="data==true">
+    <div class="login-form">
+
+      <!-- <div class="txt-center">
+        <ion-icon color="primary" style="font-size: 55px;" name="person-circle-outline"></ion-icon>
+        <br>
+        <strong>Profile</strong>
+        <br>
+      </div> -->
+      <!-- profile form -->
+      <form [formGroup]="profileForm">
+
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="firstname" [(ngModel)]="profileDetails.firstname" type="text" require
+              placeholder="Name">
+            </ion-input>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.firstname">
+                  <div class="error-msg"
+                    *ngIf="profileForm.get('firstname').hasError(validation.type) && profileForm.get('firstname').touched">
+                    <span class="error">{{ validation.message }}</span>
+                  </div>
+                </ng-container>
+              </div>
+          </ion-col>
+          <ion-col>
+            <ion-input formControlName="lastname" [(ngModel)]="profileDetails.lastname" type="text" required
+              placeholder="Surname"></ion-input>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.lastname">
+                  <div class="error-msg"
+                    *ngIf="profileForm.get('lastname').hasError(validation.type) && profileForm.get('lastname').touched">
+                    <span class="error">{{ validation.message }}</span>
+                  </div>
+                </ng-container>
+              </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="email" [(ngModel)]="profileDetails.email" type="email" required
+              placeholder="Email"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="cellnumber" maxlength="10" [(ngModel)]="profileDetails.cellnumber" type="text" required
+              placeholder="Phone Number"></ion-input>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.cellnumber">
+                  <div class="error-msg"
+                    *ngIf="profileForm.get('cellnumber').hasError(validation.type) && profileForm.get('cellnumber').touched">
+                    <span class="error">{{ validation.message }}</span>
+                  </div>
+                </ng-container>
+              </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-row>
+          <ion-col>
+            <ion-datetime class="txt-center" style="text-align: center;border: 1px solid #3880ff;border-radius: 5px;"
+              formControlName="dob" placeholder="Date Of Birth" displayFormat="YYYY-MM-DD" max="2002">
+            </ion-datetime>
+          </ion-col>
+        </ion-row> -->
+
+        <!-- <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Gender:</ion-label>
+              <ion-select type="select" formControlName="gender" value="select" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="male">male</ion-select-option>
+                <ion-select-option value="female">female</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row> -->
+
+        <!-- <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Province:</ion-label>
+              <ion-select style="text-align: left;" formControlName="province" value="select" okText="Okay"
+                cancelText="Dismiss">
+                <ion-select-option *ngFor='let province of Province' value='{{province}}'>{{province}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row> -->
+
+        <ion-row>
+          <ion-col size="6" sm>
+            <ion-button expand="full" color="success" (click)="UpdateProfile()">Update Profile</ion-button>
+          </ion-col>
+          <ion-col size="6" sm>
+            <ion-button expand="full" color="secondary" (click)="changepassword()">Change Password</ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="danger" (click)="logout()">Logout</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <br>
+    </div>
+  </ion-grid>
+
+
+
+  <ion-grid *ngIf="data==false">
+    <div class="login-form">
+      <div class="skeleton">
+        <ion-row>
+          <ion-col>
+            <ion-input>
+              <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+            </ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input>
+              <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-input>
+              <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-input>
+              <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+  
+
+
+      
+
+        <ion-row>
+          <ion-col size="6" sm>
+            <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+       
+          </ion-col>
+          <ion-col size="6" sm>
+            <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+
+         </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-skeleton-text animated style="height: 100%; width: 100%"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </div>
+      <br>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,38 @@
+.Sign-up {
+    font-size: 30px;
+    font-weight: bold;
+}
+ion-container{
+    top: 7px;
+    position: absolute;
+}
+:host {
+    .item-interactive.ion-invalid{
+        --highlight-background:transparent;
+    }
+    .item-interactive.ion-valid{
+        --highlight-background:transparent;
+    }
+    
+}
+ion-label{
+    color:black !important;
+}
+ion-toolbar {
+    --background: transparent;
+    --background-color: transparent;
+    --ion-color-base: transparent !important;
+}
+ion-item{
+    ion-input {
+        --padding-start: 0px;
+    }
+    ion-icon {
+        margin-top: 14px;
+    }
+}
+
+.validation-errors {
+    color: red;
+    padding-left: 16px;
+}

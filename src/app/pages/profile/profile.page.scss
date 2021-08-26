@@ -1,0 +1,87 @@
+ion-title{
+    text-align: center;
+}
+#logo {
+    width: 100%;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 130px;
+    }
+}
+.login-form{
+    .txt-center{
+        text-align: center;
+    }
+    ion-input[type=text]{
+        text-align: center; 
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+    ion-input[type=email]{
+        text-align: center; 
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+    ion-input[type=tel]{
+        text-align: center; 
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+    ion-input[type=password]{
+        text-align: center;
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+    
+    ion-datetime{
+        text-align: center;
+        border: 1px solid ;
+        border-radius: 5px;
+        width: 100%;
+    }
+    ion-input[type=select]{
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+    // ion-input[type=number]{
+    //     text-align: center;
+    //     border: 1px solid ;@extend .color-primary;
+    //     border-radius: 5px;
+    // }
+  
+}
+
+
+.validation-errors {
+    color: red;
+    padding-top: 4px;
+}
+
+.skeleton-text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 150px;
+    .inner-skeleton-text {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: 100px;
+    }
+}
+
+
+.skeleton {
+    ion-input {
+        border-radius: 10px;
+        border: 1px solid black;
+        --padding-start: 0px;
+    }
+      
+}

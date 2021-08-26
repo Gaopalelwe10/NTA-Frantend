@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-qrreader",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
